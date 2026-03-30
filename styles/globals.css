@@ -1,8 +1,37 @@
 @import "tailwindcss";
 
+@tailwind utilities;
+
+/* Bootstrap CSS importu */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Koyu tema için küçük bir fix */
+body {
+  background-color: #020617;
+  /* Slate-950 */
+  color: white;
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+/* Tüm input ve textareaların placeholder rengini bembeyaz yapıyoruz */
+::placeholder {
+  color: #7c8997 !important;
+  /* slate-100 (Bembeyaz'a çok yakın) */
+  opacity: 1 !important;
+  /* Bootstrap'in varsayılan şeffaflığını öldürür */
+}
+
+:-ms-input-placeholder {
+  color: #f1f5f9 !important;
+  opacity: 1 !important;
+}
+
+::-ms-input-placeholder {
+  color: #f1f5f9 !important;
+  opacity: 1 !important;
 }
 
 @theme inline {

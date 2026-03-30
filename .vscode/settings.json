@@ -1,0 +1,13 @@
+{
+    "css.customData": [],
+    "css.lint.unknownAtRules": "ignore",
+    "scss.lint.unknownAtRules": "ignore",
+    "less.lint.unknownAtRules": "ignore",
+    "tailwindCSS.includeLanguages": {
+        "plaintext": "ts",
+        "html": "html",
+        "javascript": "javascript",
+        "css": "css"
+    },
+    "tailwindCSS.lint.suggestCanonicalClasses": "ignore"
+}
