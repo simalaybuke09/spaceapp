@@ -181,18 +181,25 @@ export default function Home({ teams: initialTeams, homeData: initialHomeData })
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 gap-x-8 gap-y-12 items-start">
             {teams.map((team, index) => (
               <div key={index} className="flex flex-col items-center gap-6 p-4 rounded-xl transition hover:bg-slate-800/60 hover:-translate-y-1 group cursor-default">
-                <div className="relative w-28 h-28 aspect-square rounded-full overflow-hidden border-2 border-slate-700 shadow-xl bg-slate-950 p-2 flex items-center justify-center group-hover:border-blue-500 transition-colors">
-                  {team.logo?.url ? ( // Burada da 'team' kullanmalısın
+                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-white p-4 border-2 border-slate-700 shadow-2xl flex items-center justify-center overflow-hidden transition-all duration-500 group-hover:border-blue-500">
+                  {team.logo?.url ? (
                     <Image
-                      src={team.logo.url} // urlFor kullanmıyoruz!
+                      // urlFor yerine direkt api.js'den gelen url
+                      src={team.logo.url}
                       alt={team.name}
+                      fill
+                      // Bulanık yükleme efekti (LQIP)
                       placeholder="blur"
                       blurDataURL={team.logo.metadata?.lqip}
-                      fill
-                      className="object-contain p-3"
+                      priority={index < 3}
+                      sizes="(max-width: 768px) 128px, 160px"
+                      // mix-blend-multiply: Beyaz arka planlı logoları şeffaf gibi gösterir
+                      className="object-contain p-6 mix-blend-multiply transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
-                    <div className="text-[10px] text-slate-600">Logo Yok</div>
+                    <div className="flex items-center justify-center h-full text-slate-400 italic text-xs uppercase font-bold text-center p-4">
+                      Logo Yok
+                    </div>
                   )}
                 </div>
                 <p className="text-sm md:text-base font-semibold text-center text-slate-300 group-hover:text-white transition-colors">

@@ -22,7 +22,7 @@ export default function ContactPage() {
         const form = e.target;
         const formData = new FormData(form);
 
-        const response = await fetch("https://formspree.io/f/meepeawb", {
+        const response = await fetch("https://formspree.io/f/maqljden", {
             method: "POST",
             body: formData,
             headers: { 'Accept': 'application/json' }
